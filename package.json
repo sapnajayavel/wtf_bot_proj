@@ -1,0 +1,16 @@
+{
+  "name": "wtfbot",
+  "version": "1.0.0",
+  "description": "where is the food",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "jan",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "request": "^2.81.0"
+  }
+}
