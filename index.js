@@ -62,7 +62,7 @@ function sendTextMessage(sender, text) {
 		} else if (response.body.error) {
 		    console.log('Error: ', response.body.error)
 	    } else{
-	    	console.log(respone.body);
+	    	console.log(response.body);
 	    }
     })
 }
