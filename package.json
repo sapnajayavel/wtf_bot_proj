@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "where is the food",
   "main": "index.js",
-  "scripts": {
-    "test": "test"
+"scripts": {
+"start": "node index.js"
   },
   "author": "jan",
   "license": "ISC",
