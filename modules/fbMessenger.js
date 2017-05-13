@@ -136,7 +136,7 @@ module.exports = {
                         console.log("Questions 1:" + questions);
                         var itemsProcessed = 0;
                         questions.forEach((questions, index, array) => {
-                          asyncFunction(questions, () => {
+                          saveAskQuestionForUser(senderID,questions, () => {
                             itemsProcessed++;
                             console.log('saveAskQuestionForUser' + senderID + questions.ans);
                                 var quickReply = [];
