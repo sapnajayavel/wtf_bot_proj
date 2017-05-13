@@ -413,17 +413,17 @@ function sendAskQuestion(senderID){
 
 function saveTellMeQuestionForUser(senderID,questions) {
     console.log('saveAskQuestionForUser' + senderID + questions.ans);
-//     var quickReply = [];
-//     for ( var j=0;j<questions.ans.length;j++){
-//         var reply = {
-//             "content_type": "text",
-//             "title": questions.ans[j],
-//             "payload": constants.UPLOAD_PAYLOAD
-//         }
-//         quickReply.push(reply);
-//     }
-//     var title = questions.ques;
-//     sendQuickReply(senderID, quickReply, title);
+    var quickReply = [];
+    for ( var j=0;j<questions.ans.length;j++){
+        var reply = {
+            "content_type": "text",
+            "title": questions.ans[j],
+            "payload": constants.UPLOAD_PAYLOAD
+        }
+        quickReply.push(reply);
+    }
+    var title = questions.ques;
+    sendQuickReply(senderID, quickReply, title);
 }
 
 
