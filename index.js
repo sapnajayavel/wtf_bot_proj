@@ -54,6 +54,7 @@ app.post('/webhook/', function (req, res) {
     for (let i = 0; i < messaging_events.length; i++) {
 	    let event = req.body.entry[0].messaging[i]
 	    let sender = event.sender.id
+	    console.log("Messaging event" +event);
 	    if (event.message && event.message.text) {
 		    fbMessenger.receivedMessage(event);
 	    } else if(event.message && event.message.attachments){
