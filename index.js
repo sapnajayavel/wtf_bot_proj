@@ -75,9 +75,7 @@ app.post('/webhook/', function (req, res) {
 
       		var myJSONObject = { 
       			"url":url,
-      			"language":"eng",
       			"apikey":"af84edd27688957",
-      			"isOverlayRequired":"true"
       		};
 			request({
    				 url: "https://api.ocr.space/parse/image",
@@ -88,7 +86,6 @@ app.post('/webhook/', function (req, res) {
 					 console.log("success handler");
    					 console.log(response);
    					 console.log("body");
-   					 console.log(body);
    					 console.log(error);
 				});
 
