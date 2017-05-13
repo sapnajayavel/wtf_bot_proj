@@ -130,10 +130,10 @@ module.exports = {
                         var questions = sendAskQuestion(senderID);
                         console.log("questions" + questions);
                         for(var i = 0; i < questions.length ; i++){
-                             setTimeout(function() {
-                            //          sendPlayMessage(senderID);
+                            setTimeout(function() {
+                                    saveTellMeQuestionForUser(senderID, questions[i]);
                             }, 500);
-                            saveTellMeQuestionForUser(senderID, questions[i]);
+                            
                         }
                         break;
                     case constants.TELLME_PAYLOAD:
@@ -388,16 +388,21 @@ function sendPlayMessage(senderID) {
 
 
 function sendAskQuestion(senderID){
-    request(constants.SERVER_URL + '/tellmequestion/getQuestions', function(error, response, body) {
-        if (error) {
-            sendTextMessage(senderID, constants.KANNA_MESSAGES.ERROR);
-            return;
-        }
-        var questions = JSON.parse(response.body);
-        console.log("Response Ask Questions: " + questions);
-        return questions;
+    // request(constants.SERVER_URL + '/tellmequestion/getQuestions', function(error, response, body) {
+    //     if (error) {
+    //         sendTextMessage(senderID, constants.KANNA_MESSAGES.ERROR);
+    //         return;
+    //     }
+    //     var questions = JSON.parse(response.body);
+    //     console.log("Response Ask Questions: " + questions);
+    //     return questions;
 
-    });
+    // });
+
+    var questions = [{"_id":"59168e2c734d1d72a14664d0","id":1,"answerType":"string","ques":"What are you allergic to?","ans":[]},{"_id":"59168eec734d1d72a14664fe","id":2,"answerType":"list","ques":"Do you have any medical conditions?","ans":["Diabetes","Thyroid","BP","Ulcer","Cholesterol","Jaundice"]},{"_id":"59168f33734d1d72a1466521","id":3,"answerType":"list","ques":"Are you on any specific diet?","ans":["Low fat","No spice","Vegen Diet","Vegeterian"]}];
+
+
+
 }
 
 
