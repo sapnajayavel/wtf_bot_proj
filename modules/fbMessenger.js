@@ -110,6 +110,7 @@ module.exports = {
                 messageId, appId, metadata);
             return;
         } else if (quickReply) {
+            console.log("Calbback" + "Sapna ur here!!");
             var quickReplyPayload = quickReply.payload;
             if (quickReplyPayload.indexOf("GAME_RIGHT") != -1) {
                 sendTextMessage(senderID, constants.KANNA_MESSAGES.RIGHT_ANSWER);
