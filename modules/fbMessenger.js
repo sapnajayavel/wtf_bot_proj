@@ -101,6 +101,7 @@ module.exports = {
         var messageAttachments = message.attachments;
         var quickReply = message.quick_reply;
 
+        console.log("Check for if condition" + isEcho + "@@" + quickReply);
         if (isEcho) {
             // Just logging message echoes to console
             console.log("Received echo for message %s and app %d with metadata %s",
