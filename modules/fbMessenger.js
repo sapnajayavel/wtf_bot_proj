@@ -403,7 +403,7 @@ function sendAskQuestion(senderID){
 function saveTellMeQuestionForUser(senderID,questions) {
     console.log('saveAskQuestionForUser' + senderID + questions);
     var quickReply = [];
-    for ( var j=0;j<questions.ans.length;j++){
+    for ( var j=0;j<questions.ans.size;j++){
         var reply = {
             "content_type": "text",
             "title": questions.ans[i],
