@@ -8,6 +8,8 @@ const app = express()
 var mongoose = require('mongoose');
 var config = require('./config');
 var options = require(__dirname + '/routes/option')();
+var tellmequestionlists = require(__dirname + '/routes/tellmequestionlist')();
+
 var fbMessenger = require('./modules/fbMessenger');
 
 global.__base = __dirname + '/';
@@ -27,9 +29,8 @@ mongoose.connect(config.database.mlabs);
 
 
 //Router calls
-app.use('/option', options);
-
-
+app.use('/option', options);tellmequestionlists
+app.use('/tellmequestion', tellmequestionlists);
 
 // Index route
 app.get('/', function (req, res) {

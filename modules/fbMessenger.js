@@ -112,43 +112,28 @@ module.exports = {
         } else if (quickReply) {
             console.log("Calbback" + "Sapna ur here!!");
             var quickReplyPayload = quickReply.payload;
-            if (quickReplyPayload.indexOf("GAME_RIGHT") != -1) {
-                sendTextMessage(senderID, constants.KANNA_MESSAGES.RIGHT_ANSWER);
-                setTimeout(function() {
-                    sendPlayMessage(senderID);
-                }, 500);
-            } else if (quickReplyPayload.indexOf("GAME_WRONG") != -1) {
-                sendTextMessage(senderID, constants.KANNA_MESSAGES.WRONG_ANSWER);
-                setTimeout(function() {
-                    sendPlayMessage(senderID);
-                }, 500);
-            } else if (quickReplyPayload.indexOf("MAIN_SERVICE_") != -1) {
+
+           if (quickReplyPayload.indexOf("MAIN_SERVICE_") != -1) {
+                console.log("Calbback" + "Sapna ur here!!  - Main service");
                 switch (quickReplyPayload) {
-                    case constants.RECOMMEND_PAYLOAD:
-                        sendTextMessage(senderID, "Fetching you the list of recommendations.");
+                    case constants.UPLOAD_PAYLOAD:
+                        sendTextMessage(senderID, constants.ASK_ME_QUESTION);
+                        sendAskQuestion(senderID);
+                        
+                        setTimeout(function() {
+                                sendPlayMessage(senderID);
+                        }, 500);
                         break;
-                    case constants.LOG_PAYLOAD:
+                    case constants.ASKME_PAYLOAD:
                         sendTextMessage(senderID, "Please brief your concern for us to address it promptly.");
                         break;
-                    case constants.PLAY_PAYLOAD:
-                        sendPlayMessage(senderID);
+                    case constants.TELLME_PAYLOAD:
+                        sendTextMessage(senderID);
                         break;
                     default:
                         sendTextMessage(senderID, constants.KANNA_MESSAGES.CANT_UNDERSTAND);
                 }
-            } else if (quickReplyPayload.indexOf(constants.BOOK_CAB_PAYLOAD) != -1) {
-                //code to book a cab service
-                sendTypingOn(senderID);
-                setTimeout(() => {
-                    sendTypingOff(senderID);
-                    sendTextMessage(senderID, "Your cab has been booked.");
-                }, 3000);
-            } else {
-                console.log("Quick reply for message %s with payload %s",
-                    messageId, quickReplyPayload);
-
-                sendTextMessage(senderID, "Quick reply tapped");
-            }
+            } 
             return;
         }
 
@@ -387,6 +372,23 @@ function sendPlayMessage(senderID) {
     var title = ques.question;
     sendQuickReply(senderID, quickReply, title);
 }
+
+
+function sendAskQuestion(senderID){
+    request(constants.SERVER_URL + '/tellmequestion/getQuestions', function(error, response, body) {
+        if (error) {
+            sendTextMessage(senderID, constants.KANNA_MESSAGES.ERROR);
+            return;
+        }
+        var questions = JSON.parse(response.body);
+        console.log("Response Ask Questions: " + questions);
+        response.send(questions);
+
+    });
+}
+
+
+
 
 function sendMovies(senderID) {
     request(constants.SERVER_URL + '/movies/getAllMovies', function(error, response, body) {

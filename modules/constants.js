@@ -11,8 +11,8 @@ module.exports = {
     "UBER": "https://login.uber.com/oauth/v2/authorize?client_id=NOAdsESZIE2CPWaL4Fg0d71uNVjFzcLU&response_type=code&scope=request",
     "WIT_AI_ENDPOINT": "https://api.wit.ai/message?v=20160829&q=",
     "WIT_AI_SERVER_TOKEN": "Bearer BFYEQAC2CHDMSNJY6WI7G7OOA5BLPMD4",
-    "SERVER_URL": "https://thebotdesigners.herokuapp.com",
-    "LOCAL_URL": "http://localhost:8080",
+    "SERVER_URL": "https://mysterious-fortress-93870.herokuapp.com",
+    "LOCAL_URL": "http://localhost:5000",
     "HTML_DIR": "WebContent/html/",
     "DB_URL": "mongodb://sirius:avengers@ds017256.mlab.com:17256/users",
     "RECOMMEND_PAYLOAD": "MAIN_SERVICE_RECOMMEND_MOVIES_PAYLOAD",
@@ -30,7 +30,7 @@ module.exports = {
         "ISSUE_COMMAND": "ISSUE"
     },
     "KANNA_MESSAGES": {
-        "ERROR": "Kanna, an error ran into me because I don't",
+        "ERROR": "Yikes, an error ran into me because I don't",
         "CANT_UNDERSTAND": "Yikes, I cannot understand you.",
         "WRONG_ANSWER": "Kanna, try again.",
         "RIGHT_ANSWER": "Right answer",
@@ -44,8 +44,8 @@ module.exports = {
     },
     "UPLOAD_PAYLOAD":"MAIN_SERVICE_UPLOAD_PAYLOAD",
      "ASKME_PAYLOAD":"MAIN_SERVICE_ASKME_PAYLOAD",
-      "TELLME_PAYLOAD":"MAIN_SERVICE_TELLME_PAYLOAD"
-
+      "TELLME_PAYLOAD":"MAIN_SERVICE_TELLME_PAYLOAD",
+      "ASK_ME_QUESTION" : "Let me get to know you!"
 
 
 };
