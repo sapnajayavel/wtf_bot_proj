@@ -29,12 +29,12 @@ module.exports = {
         "MOVIES_NEAR_ME": "MOVIES NEAR ME",
         "ISSUE_COMMAND": "ISSUE"
     },
-    "Yikes_MESSAGES": {
-        "ERROR": "Yikes, an error ran into me because I don't",
+    "KANNA_MESSAGES": {
+        "ERROR": "Kanna, an error ran into me because I don't",
         "CANT_UNDERSTAND": "Yikes, I cannot understand you.",
-        "WRONG_ANSWER": "Yikes, try again.",
+        "WRONG_ANSWER": "Kanna, try again.",
         "RIGHT_ANSWER": "Right answer",
-        "SHOW_BOOKED": "Yikes, your show is booked."
+        "SHOW_BOOKED": "Kanna, your show is booked."
     },
     "REVIEW": {
         "EXCELLENT_PAYLOAD": "REVIEW_EXCELLENT",
