@@ -104,8 +104,8 @@ module.exports = {
         console.log("Check for if condition" + isEcho + "@@" + quickReply);
         if (isEcho) {
             // Just logging message echoes to console
-            console.log("Received echo for message %s and app %d with metadata %s",
-                message.payload);
+            console.log("Received echo for message %s ",
+               messageText);
             console.log("Received echo payload %s",
                 messageId, appId, metadata);
             return;
