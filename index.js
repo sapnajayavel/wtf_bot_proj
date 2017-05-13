@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
 
-
+var mongoose = require('mongoose');
 var config = require('./config');
 global.__base = __dirname + '/';
 
