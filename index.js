@@ -54,7 +54,7 @@ app.post('/webhook/', function (req, res) {
     for (let i = 0; i < messaging_events.length; i++) {
 	    let event = req.body.entry[0].messaging[i]
 	    let sender = event.sender.id
-	    console.log("Messaging event" +JSON.parse(event));
+	    console.log("Messaging event" +event);
 	    if (event.message && event.message.text) {
 		    fbMessenger.receivedMessage(event);
 	    } else if(event.message && event.message.attachments){
@@ -75,7 +75,9 @@ app.post('/webhook/', function (req, res) {
 
       		var myJSONObject = { 
       			"url":url,
+      			"language":"eng",
       			"apikey":"af84edd27688957",
+      			"isOverlayRequired":"true"
       		};
 			request({
    				 url: "https://api.ocr.space/parse/image",
@@ -86,6 +88,7 @@ app.post('/webhook/', function (req, res) {
 					 console.log("success handler");
    					 console.log(response);
    					 console.log("body");
+   					 console.log(body);
    					 console.log(error);
 				});
 
