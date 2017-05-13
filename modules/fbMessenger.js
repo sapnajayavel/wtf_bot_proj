@@ -926,7 +926,7 @@ function sendAccountLinking(recipientId) {
  *
  */
 function callSendAPI(messageData) {
-    console.log("Successfully sent message with id %s to recipient %s",
+    console.log("Successfully sent message with id %s to recipient %s");
     request({
         uri: constants.FB_MESSAGES_URL,
         qs: {
