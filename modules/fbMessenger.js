@@ -413,7 +413,7 @@ function saveTellMeQuestionForUser(senderID,questions) {
     for ( var j=0;j<questions.ans.length;j++){
         var reply = {
             "content_type": "text",
-            "title": questions.ans[i],
+            "title": questions.ans[j],
             "payload": constants.UPLOAD_PAYLOAD,
             "ques_id": questions.id
         }
