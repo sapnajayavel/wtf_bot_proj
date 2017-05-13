@@ -127,7 +127,11 @@ module.exports = {
                         break;
                     case constants.ASKME_PAYLOAD:
                         sendTextMessage(senderID, constants.ASK_ME_QUESTION);
-                        sendAskQuestion(senderID);
+                        var questions = sendAskQuestion(senderID);
+                        for(var i = 0; i < questions.length ; i++){
+                            sendTextMessage(senderID, questions[i]);
+                            //sendPlayMessage(senderID);
+                        }
                         break;
                     case constants.TELLME_PAYLOAD:
                         sendTextMessage(senderID);
