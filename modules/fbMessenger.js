@@ -117,15 +117,17 @@ module.exports = {
                 console.log("Calbback" + "Sapna ur here!!  - Main service");
                 switch (quickReplyPayload) {
                     case constants.UPLOAD_PAYLOAD:
-                        sendTextMessage(senderID, constants.ASK_ME_QUESTION);
-                        sendAskQuestion(senderID);
+
+                        //Jan to write her upload code here!
+                       
                         
                         // setTimeout(function() {
                         //         sendPlayMessage(senderID);
                         // }, 500);
-                        // break;
+                        break;
                     case constants.ASKME_PAYLOAD:
-                        sendTextMessage(senderID, "Please brief your concern for us to address it promptly.");
+                        sendTextMessage(senderID, constants.ASK_ME_QUESTION);
+                        sendAskQuestion(senderID);
                         break;
                     case constants.TELLME_PAYLOAD:
                         sendTextMessage(senderID);
