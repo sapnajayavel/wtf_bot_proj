@@ -424,7 +424,7 @@ function saveTellMeQuestionForUser(senderID,questions) {
 //     }
 //     var title = questions.ques;
 //     sendQuickReply(senderID, quickReply, title);
-// }
+}
 
 
 
