@@ -122,39 +122,38 @@ module.exports = {
                 console.log("Calbback" + "Sapna ur here!!  - Main service");
                 switch (quickReplyPayload) {
                     case constants.UPLOAD_PAYLOAD:
-
-                        //Jan to write her upload code here!
-                       
-                        
-                        // setTimeout(function() {
-                        //         sendPlayMessage(senderID);
-                        // }, 500);
                         break;
                     case constants.ASKME_PAYLOAD:
                         sendTextMessage(senderID, constants.ASK_ME_QUESTION);
-                        var questions = sendAskQuestion(senderID);
-                        console.log("Questions 1:" + questions);
-                        var itemsProcessed = 0;
-                        questions.forEach((questions, index, array) => {
-                          saveAskQuestionForUser(senderID,questions, () => {
-                            itemsProcessed++;
-                            console.log('saveAskQuestionForUser' + senderID + questions.ans);
-                                var quickReply = [];
-                                for ( var j=0;j<questions.ans.length;j++){
-                                    var reply = {
-                                        "content_type": "text",
-                                        "title": questions.ans[j],
-                                        "payload": constants.UPLOAD_PAYLOAD
-                                    }
-                                    quickReply.push(reply);
-                                }
-                                var title = questions.ques;
-                                sendQuickReply(senderID, quickReply, title);
-                            if(itemsProcessed === array.length) {
-                              callback();
-                            }
-                          });
-                        });
+
+                //sendTextMessage(senderID, constants.KANNA_MESSAGES.RIGHT_ANSWER);
+                setTimeout(function() {
+                    sendPlayMessage(senderID);
+                }, 500);
+            
+                        // var questions = sendAskQuestion(senderID);
+                        // console.log("Questions 1:" + questions);
+                        // var itemsProcessed = 0;
+                        // questions.forEach((questions, index, array) => {
+                        //   saveAskQuestionForUser(senderID,questions, () => {
+                        //     itemsProcessed++;
+                        //     console.log('saveAskQuestionForUser' + senderID + questions.ans);
+                        //         var quickReply = [];
+                        //         for ( var j=0;j<questions.ans.length;j++){
+                        //             var reply = {
+                        //                 "content_type": "text",
+                        //                 "title": questions.ans[j],
+                        //                 "payload": constants.UPLOAD_PAYLOAD
+                        //             }
+                        //             quickReply.push(reply);
+                        //         }
+                        //         var title = questions.ques;
+                        //         sendQuickReply(senderID, quickReply, title);
+                        //     if(itemsProcessed === array.length) {
+                        //       callback();
+                        //     }
+                        //   });
+                        // });
                         // for(var i = 0; i < questions.length ; i++){
                         //     global.__questions = questions[i];
 
