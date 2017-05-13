@@ -359,21 +359,21 @@ function sendHelpMessage(senderID) {
     console.log('sendHelpMessage method called');
     var quickReply = [{
             "content_type": "text",
-            "title": "Movies",
-            "payload": constants.RECOMMEND_PAYLOAD
+            "title": "Upload",
+            "payload": constants.UPLOAD_PAYLOAD
         },
         {
             "content_type": "text",
-            "title": "Play",
-            "payload": constants.PLAY_PAYLOAD
+            "title": "Ask Me",
+            "payload": constants.ASKME_PAYLOAD
         },
         {
             "content_type": "text",
-            "title": "Contact",
-            "payload": constants.LOG_PAYLOAD
+            "title": "Tell Me",
+            "payload": constants.TELLME_PAYLOAD
         }
     ];
-    var title = "I'm Baasha.. Maaanik Baasha!! Kanna how can I help you? ";
+    var title = "Where's the food !! Let me feed you!!";
     sendQuickReply(senderID, quickReply, title);
 }
 

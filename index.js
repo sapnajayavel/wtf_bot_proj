@@ -7,6 +7,8 @@ const app = express()
 
 var mongoose = require('mongoose');
 var config = require('./config');
+var options = require(__dirname + '/routes/option')();
+var fbMessenger = require('./modules/fbMessenger');
 global.__base = __dirname + '/';
 
 app.set('port', (process.env.PORT || 5000))
@@ -21,6 +23,12 @@ app.use(express.static('WebContent'));
 
 // Connect to database
 mongoose.connect(config.database.mlabs);
+
+
+//Router calls
+app.use('/option', options);
+
+
 
 // Index route
 app.get('/', function (req, res) {
@@ -49,6 +57,9 @@ app.post('/webhook/', function (req, res) {
 		    let text = event.message.text
 		    sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
 	    }
+	     else if (event.message) {
+            fbMessenger.receivedMessage(event);
+        }
     }
     res.sendStatus(200)
 })
