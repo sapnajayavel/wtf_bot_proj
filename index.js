@@ -58,6 +58,7 @@ app.post('/webhook/', function (req, res) {
 	    if (event.message && event.message.text) {
 		    fbMessenger.receivedMessage(event);
 	    } else if(event.message && event.message.attachments){
+	    	console.log("Attachment");
 	    	//Create the attachment
       		let attachment = event.message.attachments
 
@@ -71,6 +72,7 @@ app.post('/webhook/', function (req, res) {
       		let url = payload.url;
 
       		console.log(url)
+
       		var myJSONObject = { 
       			"url":url,
       			"language":"eng",
@@ -87,6 +89,7 @@ app.post('/webhook/', function (req, res) {
    					 console.log(response);
    					 console.log("body");
    					 console.log(body);
+   					 console.log(error);
 				});
 
 	    }
