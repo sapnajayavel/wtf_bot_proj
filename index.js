@@ -29,7 +29,7 @@ mongoose.connect(config.database.mlabs);
 
 
 //Router calls
-app.use('/option', options);tellmequestionlists
+app.use('/option', options);
 app.use('/tellmequestion', tellmequestionlists);
 
 // Index route

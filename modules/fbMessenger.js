@@ -129,12 +129,18 @@ module.exports = {
                         sendTextMessage(senderID, constants.ASK_ME_QUESTION);
                         var questions = sendAskQuestion(senderID);
                         for(var i = 0; i < questions.length ; i++){
-                            sendTextMessage(senderID, questions[i]);
-                            //sendPlayMessage(senderID);
+                             setTimeout(function() {
+                            //          sendPlayMessage(senderID);
+                            }, 500);
+                            saveTellMeQuestionForUser(senderID, questions[i]);
                         }
                         break;
                     case constants.TELLME_PAYLOAD:
                         sendTextMessage(senderID);
+                        break;
+
+                    case constants.APISK_ME_ANSWER_PAYLOAD:
+                        saveUserAnswer(senderID,quickReply.title,quickReply.ques_id)
                         break;
                     default:
                         sendTextMessage(senderID, constants.KANNA_MESSAGES.CANT_UNDERSTAND);
@@ -392,6 +398,24 @@ function sendAskQuestion(senderID){
 
     });
 }
+
+
+function saveTellMeQuestionForUser(senderID,questions) {
+    console.log('saveAskQuestionForUser' + senderID + questions);
+    var quickReply = [];
+    for ( var j=0;j<questions.ans.length;j++){
+        var reply = {
+            "content_type": "text",
+            "title": questions.ans[i],
+            "payload": constants.UPLOAD_PAYLOAD,
+            "ques_id": questions.id
+        }
+        quickReply.push(reply);
+    }
+    var title = questions.ques;
+    sendQuickReply(senderID, quickReply, title);
+}
+
 
 
 
