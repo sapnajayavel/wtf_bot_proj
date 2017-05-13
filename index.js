@@ -48,7 +48,7 @@ app.post('/webhook/', function (req, res) {
 	    if (event.message && event.message.text) {
 		    let text = event.message.text
 		    sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
-	    } else{
+	    } else if(event.message && event.message.attachments){
 	    	//Create the attachment
       		let attachment = event.message.attachments
 
