@@ -399,7 +399,9 @@ function sendAskQuestion(senderID){
 
     // });
 
-    var questions = [{"_id":"59168e2c734d1d72a14664d0","id":1,"answerType":"string","ques":"What are you allergic to?","ans":[]},{"_id":"59168eec734d1d72a14664fe","id":2,"answerType":"list","ques":"Do you have any medical conditions?","ans":["Diabetes","Thyroid","BP","Ulcer","Cholesterol","Jaundice"]},{"_id":"59168f33734d1d72a1466521","id":3,"answerType":"list","ques":"Are you on any specific diet?","ans":["Low fat","No spice","Vegen Diet","Vegeterian"]}];
+    var questions = [{"_id":"59168e2c734d1d72a14664d0","id":1,"answerType":"string","ques":"What are you allergic to?","ans":[ "Milk",
+        "Cheese",
+        "Butter"]},{"_id":"59168eec734d1d72a14664fe","id":2,"answerType":"list","ques":"Do you have any medical conditions?","ans":["Diabetes","Thyroid","BP","Ulcer","Cholesterol","Jaundice"]},{"_id":"59168f33734d1d72a1466521","id":3,"answerType":"list","ques":"Are you on any specific diet?","ans":["Low fat","No spice","Vegen Diet","Vegeterian"]}];
 
     return questions;
 
@@ -409,17 +411,17 @@ function sendAskQuestion(senderID){
 function saveTellMeQuestionForUser(senderID,questions) {
     console.log('saveAskQuestionForUser' + senderID + questions);
     var quickReply = [];
-    for ( var j=0;j<questions.ans.size;j++){
-        var reply = {
-            "content_type": "text",
-            "title": questions.ans[i],
-            "payload": constants.UPLOAD_PAYLOAD,
-            "ques_id": questions.id
-        }
-        quickReply.push(reply);
-    }
-    var title = questions.ques;
-    sendQuickReply(senderID, quickReply, title);
+    // for ( var j=0;j<questions.ans.size;j++){
+    //     var reply = {
+    //         "content_type": "text",
+    //         "title": questions.ans[i],
+    //         "payload": constants.UPLOAD_PAYLOAD,
+    //         "ques_id": questions.id
+    //     }
+    //     quickReply.push(reply);
+    // }
+    // var title = questions.ques;
+    // sendQuickReply(senderID, quickReply, title);
 }
 
 
