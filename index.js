@@ -5,6 +5,10 @@ const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
 
+
+var config = require('./config');
+global.__base = __dirname + '/';
+
 app.set('port', (process.env.PORT || 5000))
 
 // Process application/x-www-form-urlencoded
@@ -12,6 +16,11 @@ app.use(bodyParser.urlencoded({extended: false}))
 
 // Process application/json
 app.use(bodyParser.json())
+app.use(express.static('WebContent'));
+
+
+// Connect to database
+mongoose.connect(config.database.mlabs);
 
 // Index route
 app.get('/', function (req, res) {
