@@ -384,7 +384,7 @@ function sendAskQuestion(senderID){
         }
         var questions = JSON.parse(response.body);
         console.log("Response Ask Questions: " + questions);
-        response.send(questions);
+        return questions;
 
     });
 }
