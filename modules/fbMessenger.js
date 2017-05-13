@@ -67,8 +67,10 @@ module.exports = {
         sendTextMessage(senderID, "Authentication successful");
     },
 
+    callback: function(){
+        console.log('all done');
+    },
 
-    function callback () { console.log('all done'); },
 
     /*
      * Message Event
