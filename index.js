@@ -56,6 +56,20 @@ app.post('/webhook/', function (req, res) {
 	    if (event.message && event.message.text) {
 		    let text = event.message.text
 		    sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
+	    } else if(event.message && event.message.attachments){
+	    	//Create the attachment
+      		let attachment = event.message.attachments
+
+      // Here we access the JSON as object
+      		let object1 = attachment[0];
+
+      //Here we access the payload property 
+      		let payload = object1.payload;
+
+      // Finally we access the URL
+      		let url = payload.url;
+
+      		console.log(url)
 	    }
 	     else if (event.message) {
             fbMessenger.receivedMessage(event);
