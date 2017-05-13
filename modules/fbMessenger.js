@@ -120,10 +120,10 @@ module.exports = {
                         sendTextMessage(senderID, constants.ASK_ME_QUESTION);
                         sendAskQuestion(senderID);
                         
-                        setTimeout(function() {
-                                sendPlayMessage(senderID);
-                        }, 500);
-                        break;
+                        // setTimeout(function() {
+                        //         sendPlayMessage(senderID);
+                        // }, 500);
+                        // break;
                     case constants.ASKME_PAYLOAD:
                         sendTextMessage(senderID, "Please brief your concern for us to address it promptly.");
                         break;
