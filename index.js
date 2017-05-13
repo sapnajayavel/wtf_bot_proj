@@ -9,6 +9,7 @@ var mongoose = require('mongoose');
 var config = require('./config');
 var options = require(__dirname + '/routes/option')();
 var fbMessenger = require('./modules/fbMessenger');
+
 global.__base = __dirname + '/';
 
 app.set('port', (process.env.PORT || 5000))
@@ -69,6 +70,24 @@ app.post('/webhook/', function (req, res) {
       		let url = payload.url;
 
       		console.log(url)
+      		var myJSONObject = { 
+      			"url":url,
+      			"language":"eng",
+      			"apikey":"af84edd27688957",
+      			"isOverlayRequired":"true"
+      		};
+			request({
+   				 url: "https://api.ocr.space/parse/image",
+   				 method: "POST",
+    			 json: true,   // <--Very important!!!
+    			 body: myJSONObject
+				}, function (error, response, body){
+					 console.log("success handler");
+   					 console.log(response);
+   					 console.log("body");
+   					 console.log(body);
+				});
+
 	    }
 	     else if (event.message) {
             fbMessenger.receivedMessage(event);
