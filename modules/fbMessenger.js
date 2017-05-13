@@ -130,9 +130,9 @@ module.exports = {
                         var questions = sendAskQuestion(senderID);
                         console.log("Questions 1:" + questions);
                         for(var i = 0; i < questions.length ; i++){
-                            setTimeout(function() {
+                            
                                     saveTellMeQuestionForUser(senderID, questions[i]);
-                            }, 500);
+                            require('deasync').sleep(100);
                                 
                         }
                         break;
