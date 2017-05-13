@@ -127,7 +127,7 @@ module.exports = {
                         break;
                     case constants.ASKME_PAYLOAD:
                         sendTextMessage(senderID, constants.ASK_ME_QUESTION);
-                        var questions = sendAskQuestion(senderID);
+                        //var questions = sendAskQuestion(senderID);
                         console.log("questions" + questions);
                         for(var i = 0; i < questions.length ; i++){
                             setTimeout(function() {
@@ -401,7 +401,7 @@ function sendAskQuestion(senderID){
 
     var questions = [{"_id":"59168e2c734d1d72a14664d0","id":1,"answerType":"string","ques":"What are you allergic to?","ans":[]},{"_id":"59168eec734d1d72a14664fe","id":2,"answerType":"list","ques":"Do you have any medical conditions?","ans":["Diabetes","Thyroid","BP","Ulcer","Cholesterol","Jaundice"]},{"_id":"59168f33734d1d72a1466521","id":3,"answerType":"list","ques":"Are you on any specific diet?","ans":["Low fat","No spice","Vegen Diet","Vegeterian"]}];
 
-
+    return questions;
 
 }
 
