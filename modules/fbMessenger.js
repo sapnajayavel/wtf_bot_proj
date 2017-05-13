@@ -357,7 +357,7 @@ module.exports = {
 }
 
 function sendHelpMessage(senderID) {
-    console.log('sendHelpMessage method called');
+    console.log('sendHelpMessage method called' + senderID);
     var quickReply = [{
             "content_type": "text",
             "title": "Upload",
