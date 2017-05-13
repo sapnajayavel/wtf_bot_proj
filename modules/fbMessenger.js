@@ -130,9 +130,10 @@ module.exports = {
                         var questions = sendAskQuestion(senderID);
                         console.log("Questions 1:" + questions);
                         for(var i = 0; i < questions.length ; i++){
-                                                                saveTellMeQuestionForUser(senderID, questions[i]);
-                            
-                            
+                            setTimeout(function() {
+                                    saveTellMeQuestionForUser(senderID, questions[i]);
+                            }, 500);
+                                
                         }
                         break;
                     case constants.TELLME_PAYLOAD:
