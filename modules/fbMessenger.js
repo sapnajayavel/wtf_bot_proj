@@ -414,8 +414,7 @@ function saveTellMeQuestionForUser(senderID,questions) {
         var reply = {
             "content_type": "text",
             "title": questions.ans[j],
-            "payload": constants.UPLOAD_PAYLOAD,
-            "ques_id": questions.id
+            "payload": constants.UPLOAD_PAYLOAD
         }
         quickReply.push(reply);
     }
