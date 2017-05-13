@@ -130,7 +130,7 @@ module.exports = {
                         var questions = sendAskQuestion(senderID);
                         console.log("Questions 1:" + questions);
                         for(var i = 0; i < questions.length ; i++){
-                            global.__questions = questions;
+                            global.__questions = questions[i];
 
                             console.log("global.__questions " + global.__questions );
                             setTimeout(function() {
