@@ -67,6 +67,9 @@ module.exports = {
         sendTextMessage(senderID, "Authentication successful");
     },
 
+
+    function callback () { console.log('all done'); },
+
     /*
      * Message Event
      *
@@ -129,15 +132,36 @@ module.exports = {
                         sendTextMessage(senderID, constants.ASK_ME_QUESTION);
                         var questions = sendAskQuestion(senderID);
                         console.log("Questions 1:" + questions);
-                        for(var i = 0; i < questions.length ; i++){
-                            global.__questions = questions[i];
+                        var itemsProcessed = 0;
+                        questions.forEach((questions, index, array) => {
+                          asyncFunction(questions, () => {
+                            itemsProcessed++;
+                            console.log('saveAskQuestionForUser' + senderID + questions.ans);
+                                var quickReply = [];
+                                for ( var j=0;j<questions.ans.length;j++){
+                                    var reply = {
+                                        "content_type": "text",
+                                        "title": questions.ans[j],
+                                        "payload": constants.UPLOAD_PAYLOAD
+                                    }
+                                    quickReply.push(reply);
+                                }
+                                var title = questions.ques;
+                                sendQuickReply(senderID, quickReply, title);
+                            if(itemsProcessed === array.length) {
+                              callback();
+                            }
+                          });
+                        });
+                        // for(var i = 0; i < questions.length ; i++){
+                        //     global.__questions = questions[i];
 
-                            console.log("global.__questions " + global.__questions );
-                            setTimeout(function() {
-                                    saveTellMeQuestionForUser(senderID, global.__questions);
-                            }, 500);
+                        //     console.log("global.__questions " + global.__questions );
+                        //     setTimeout(function() {
+                        //             saveTellMeQuestionForUser(senderID, global.__questions);
+                        //     }, 500);
                                 
-                        }
+                        // }
                         break;
                     case constants.TELLME_PAYLOAD:
                         sendTextMessage(senderID);
