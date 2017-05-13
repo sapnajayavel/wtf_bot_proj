@@ -127,7 +127,7 @@ module.exports = {
                         break;
                     case constants.ASKME_PAYLOAD:
                         sendTextMessage(senderID, constants.ASK_ME_QUESTION);
-                        //var questions = sendAskQuestion(senderID);
+                        var questions = sendAskQuestion(senderID);
                         console.log("questions" + questions);
                         for(var i = 0; i < questions.length ; i++){
                             setTimeout(function() {
